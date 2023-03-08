@@ -1,4 +1,8 @@
+package DatabaseManager;
+
 import java.util.ArrayList;
+import General.*;
+import Interfaces.*;
 
 public class DatabaseManager {
     

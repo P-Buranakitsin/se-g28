@@ -1,12 +1,17 @@
-import java.io.File;
+package General;
+
 import java.util.Scanner;
+import DatabaseManager.*;
+import Enums.*;
 
 public class App {
     private static DatabaseManager databaseManager;
     private static Scanner scanner;
+
     public static void main(String[] args) {
         boolean isRun = true;
-        databaseManager = new DatabaseManager();
+        DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
+        databaseManager = databaseManagerFactory.getDatabaseManager(DatabaseManagerType.BASE);
         scanner = new Scanner(System.in);
         while(isRun) {
             System.out.println("[menu] Enter Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");

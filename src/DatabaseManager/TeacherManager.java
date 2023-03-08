@@ -1,4 +1,8 @@
+package DatabaseManager;
+
 import java.util.ArrayList;
+import General.*;
+import Interfaces.Storable;
 
 public class TeacherManager extends DatabaseManager {
     public TeacherManager(ArrayList<Teacher> teachers, ArrayList<Course> courses) {

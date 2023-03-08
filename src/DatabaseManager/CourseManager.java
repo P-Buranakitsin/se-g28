@@ -1,4 +1,8 @@
+package DatabaseManager;
+
 import java.util.ArrayList;
+import General.*;
+import Interfaces.*;
 
 public class CourseManager extends DatabaseManager {
     public CourseManager(ArrayList<Teacher> teachers, ArrayList<Course> courses) {
@@ -27,7 +31,7 @@ public class CourseManager extends DatabaseManager {
 
     @Override
     public void add(Storable storable) {
-        
+
     }
 
     @Override
