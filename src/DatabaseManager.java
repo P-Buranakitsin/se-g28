@@ -2,46 +2,32 @@ import java.util.ArrayList;
 
 public class DatabaseManager {
     
-    ArrayList<Teacher> teachers;
-    ArrayList<Course> courses;
+    protected ArrayList<Teacher> teachers;
+    protected ArrayList<Course> courses;
 
-    DatabaseManager() {
+    public DatabaseManager(ArrayList<Teacher> teachers, ArrayList<Course> courses) {
+        this.teachers = teachers;
+        this.courses = courses;
+    }
+
+    public ArrayList<Teacher> getTeachers() {
+        return teachers;
+    }
+
+    public ArrayList<Course> getCourses() {
+        return courses;
+    }
+
+    private void assignTeacherToCourse(Teacher teacher, Course course) {
 
     }
 
-    private void addRequirement(Course course) {
-        
-    }
+    /* To be overidden */
+    protected void readFile(String fileName) {}
+    protected void writeFile(String fileName, ArrayList<Storable> storables) {}
+    protected void view() {}
+    protected void remove(Storable storable) {}
+    protected void add(Storable storable) {}
+    protected void edit(Storable storable) {}
 
-    private void editRequirement(Course course) {
-        
-    }
-
-    private void viewRequirements() {
-        
-    }
-
-    private void removeRequirement(Course course) {
-        
-    }
-
-    private void addTeacher(Teacher teacher) {
-
-    }
-
-    private void editTeacher(Teacher teacher) {
-        
-    }
-
-    private void viewTeachers() {
-        
-    }
-
-    private void removeTeacher(Teacher teacher) {
-        
-    }
-
-    private void assignTeacherToCourse(Course course, Teacher teacher) {
-
-    }
 }
