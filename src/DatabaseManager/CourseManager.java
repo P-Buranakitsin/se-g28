@@ -5,8 +5,8 @@ import General.*;
 import Interfaces.*;
 
 public class CourseManager extends DatabaseManager {
-    public CourseManager(ArrayList<Teacher> teachers, ArrayList<Course> courses) {
-        super(teachers, courses);
+    public CourseManager() {
+        super();
     }
 
     @Override

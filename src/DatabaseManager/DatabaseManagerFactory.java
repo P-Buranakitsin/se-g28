@@ -7,13 +7,13 @@ public class DatabaseManagerFactory {
     public DatabaseManager getDatabaseManager(DatabaseManagerType databaseManagerType) {
         switch (databaseManagerType) {
             case TEACHER:
-                return new TeacherManager(null, null);
+                return new TeacherManager();
             case COURSE:
-                return new CourseManager(null, null);
+                return new CourseManager();
             case BASE:
-                return new DatabaseManager(null, null);
+                return new DatabaseManager();
             default:
-                return new DatabaseManager(null, null);
+                throw new IllegalArgumentException();
         }
     }
     

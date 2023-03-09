@@ -5,8 +5,8 @@ import General.*;
 import Interfaces.Storable;
 
 public class TeacherManager extends DatabaseManager {
-    public TeacherManager(ArrayList<Teacher> teachers, ArrayList<Course> courses) {
-        super(teachers, courses);
+    public TeacherManager() {
+        super();
     }
 
     @Override
