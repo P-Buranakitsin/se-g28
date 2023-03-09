@@ -1,16 +1,15 @@
 package DatabaseManager;
 
 import java.util.ArrayList;
-import General.*;
 import Interfaces.*;
 
-public abstract class DatabaseManager {
+public abstract class DatabaseManager<T extends Storable> {
 
     /* To be implemented */
     public abstract void view();
-    public abstract void remove(Storable storable);
-    public abstract void add(Storable storable);
-    public abstract void edit(Storable storable);
-    public abstract ArrayList<Storable> readFile(String fileName);
-    public abstract void writeFile(String fileName, ArrayList<Storable> storables);
+    public abstract void remove(T course);
+    public abstract void add(T storable);
+    public abstract void edit(T storable);
+    public abstract ArrayList<T> readFile(String fileName);
+    public abstract void writeFile(String fileName, ArrayList<T> storables);
 }

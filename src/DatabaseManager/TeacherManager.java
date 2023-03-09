@@ -2,20 +2,19 @@ package DatabaseManager;
 
 import java.util.ArrayList;
 import General.*;
-import Interfaces.Storable;
 
-public class TeacherManager extends DatabaseManager {
+public class TeacherManager extends DatabaseManager<Teacher> {
     public TeacherManager() {
         super();
     }
 
     @Override
-    public ArrayList<Storable> readFile(String fileName) {
+    public ArrayList<Teacher> readFile(String fileName) {
         return null;
     }
 
     @Override
-    public void writeFile(String fileName, ArrayList<Storable> storables) {
+    public void writeFile(String fileName, ArrayList<Teacher> teachers) {
 
     }
 
@@ -25,17 +24,17 @@ public class TeacherManager extends DatabaseManager {
     }
 
     @Override
-    public void remove(Storable storable) {
-
+    public void remove(Teacher teacher) {
+        System.out.println(teacher.getFirstName());
     }
 
     @Override
-    public void add(Storable storable) {
+    public void add(Teacher teacher) {
         
     }
 
     @Override
-    public void edit(Storable storable) {
+    public void edit(Teacher teacher) {
 
     }
 }
