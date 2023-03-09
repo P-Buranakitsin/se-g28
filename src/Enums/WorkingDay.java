@@ -10,7 +10,7 @@ public enum WorkingDay {
     public static void list() {
         WorkingDay[] workingDays = values();
         for (int i = 0; i < workingDays.length; i++) {
-            System.out.println(i+1 + " " + workingDays[i]);
+            System.out.println(i+1 + " for " + workingDays[i]);
         }
     }
 }

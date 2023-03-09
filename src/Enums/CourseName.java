@@ -9,7 +9,7 @@ public enum CourseName {
     public static void list() {
         CourseName[] courseNames = values();
         for (int i = 0; i < courseNames.length; i++) {
-            System.out.println(i+1 + " " + courseNames[i]);
+            System.out.println(i+1 + " for " + courseNames[i]);
         }
     }
     

@@ -12,7 +12,7 @@ public enum SkillName {
     public static void list() {
         SkillName[] skillNames = values();
         for (int i = 0; i < skillNames.length; i++) {
-            System.out.println(i+1 + " " + skillNames[i]);
+            System.out.println(i+1 + " for " + skillNames[i]);
         }
     }
 }

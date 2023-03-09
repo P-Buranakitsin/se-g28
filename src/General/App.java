@@ -71,6 +71,9 @@ public class App {
                 break;
             case(3):
                 // to do
+                CourseName.list();
+                System.out.println("Enter course index to update: ");
+                System.out.println("Enter field to update (1 for course name, 2 for teaching day, 3 skill): ");
                 break;
             case(4):
                 // to do

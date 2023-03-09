@@ -8,7 +8,7 @@ public enum FieldOfStudy {
     public static void list() {
         FieldOfStudy[] fieldOfStudies = values();
         for (int i = 0; i < fieldOfStudies.length; i++) {
-            System.out.println(i+1 + " " + fieldOfStudies[i]);
+            System.out.println(i+1 + " for " + fieldOfStudies[i]);
         }
     }
     
