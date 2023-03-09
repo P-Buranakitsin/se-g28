@@ -14,9 +14,11 @@ public class App {
         DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
         teacherManager = databaseManagerFactory.getTeacherManager();
         courseManager = databaseManagerFactory.getCourseManager();
+        teacherManager.writeFile(null, null);
+        teacherManager.readFile(null);
         scanner = new Scanner(System.in);
         while(isRun) {
-            System.out.println("[menu] Enter Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");
+            System.out.println("[menu] Enter 3Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");
             int command = scanner.nextInt();
             if(command == 3) {
                 isRun = false;
