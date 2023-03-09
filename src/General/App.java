@@ -3,6 +3,7 @@ package General;
 import java.util.ArrayList;
 import java.util.Scanner;
 import DatabaseManager.*;
+import Utils.PopulateDB;
 
 public class App {
     private static DatabaseManager<Teacher> teacherManager;
@@ -14,7 +15,7 @@ public class App {
         DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
         teacherManager = databaseManagerFactory.getTeacherManager();
         courseManager = databaseManagerFactory.getCourseManager();
-        teacherManager.writeFile(null, null);
+        PopulateDB.poulateDB();
         teacherManager.readFile(null);
         scanner = new Scanner(System.in);
         while(isRun) {
