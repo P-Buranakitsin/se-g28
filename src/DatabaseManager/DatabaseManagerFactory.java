@@ -10,8 +10,6 @@ public class DatabaseManagerFactory {
                 return new TeacherManager();
             case COURSE:
                 return new CourseManager();
-            case BASE:
-                return new DatabaseManager();
             default:
                 throw new IllegalArgumentException();
         }

@@ -1,17 +1,21 @@
 package General;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import DatabaseManager.*;
 import Enums.*;
+import Interfaces.Storable;
 
 public class App {
-    private static DatabaseManager databaseManager;
+    private static DatabaseManager teacherManager;
+    private static DatabaseManager courseManager;
     private static Scanner scanner;
 
     public static void main(String[] args) {
         boolean isRun = true;
         DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
-        databaseManager = databaseManagerFactory.getDatabaseManager(DatabaseManagerType.BASE);
+        teacherManager = databaseManagerFactory.getDatabaseManager(DatabaseManagerType.TEACHER);
+        courseManager = databaseManagerFactory.getDatabaseManager(DatabaseManagerType.COURSE);
         scanner = new Scanner(System.in);
         while(isRun) {
             System.out.println("[menu] Enter Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");

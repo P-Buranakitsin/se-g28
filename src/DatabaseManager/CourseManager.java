@@ -10,8 +10,8 @@ public class CourseManager extends DatabaseManager {
     }
 
     @Override
-    public void readFile(String fileName) {
-
+    public ArrayList<Storable> readFile(String fileName) {
+        return null;
     }
 
     @Override
