@@ -25,7 +25,7 @@ public class TeacherManager extends DatabaseManager<Teacher> {
 
     @Override
     public void remove(Teacher teacher) {
-        System.out.println(teacher.getFirstName());
+        
     }
 
     @Override
