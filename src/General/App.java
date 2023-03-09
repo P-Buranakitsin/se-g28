@@ -3,6 +3,9 @@ package General;
 import java.util.ArrayList;
 import java.util.Scanner;
 import DatabaseManager.*;
+import Enums.CourseName;
+import Enums.SkillName;
+import Enums.WorkingDay;
 
 public class App {
     private static DatabaseManager<Teacher> teacherManager;
@@ -40,11 +43,28 @@ public class App {
     }
 
     private static void courseDirectorMenu() {
-        System.out.println("Enter command (1 for create, 2 for view course): ");
+        System.out.println("Enter command (1 for create, 2 for view, 3 for update, 4 for delete teacher): ");
         int command = scanner.nextInt();
         switch(command) {
             case(1):
                 // to do
+                // choose course to add requirement
+                System.out.println("Enter course (1 for programming, 2 for SN, 3 for DB, 4 for ECS, 5 for SE ):");
+                CourseName.list();
+                int courseIn = scanner.nextInt();
+                System.out.println("create a new teaching requirement");
+                System.out.println("enter teaching day");
+                WorkingDay.list();
+                int workingDay = scanner.nextInt();
+                System.out.println("Please specified teaching skill seperated by commas");
+                SkillName.list();
+                System.out.println("(1 for Java, 2 for Python,3 for SQL 4 for Assembly, 5 for Cloud_Com, 6 for Cloud_Sec, 7 for GIT, 8 for NO_SQL)");
+                String skill = scanner.nextLine();
+                // create teaching requirement instance
+                // Course course = new Course(CourseName.values()[courseIn-1]);
+                // create Course object
+                //write to database manage
+                
                 break;
             case(2):
                 // to do
@@ -54,6 +74,7 @@ public class App {
                 break;
             case(4):
                 // to do
+
                 break;
             default:
                 System.out.println("Invalid command");
