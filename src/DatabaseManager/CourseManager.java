@@ -25,7 +25,7 @@ public class CourseManager extends DatabaseManager<Course> {
 
     @Override
     public void remove(Course course) {
-        System.out.println(course.getName());
+        
     }
 
     @Override
