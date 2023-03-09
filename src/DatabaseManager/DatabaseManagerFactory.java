@@ -1,18 +1,15 @@
 package DatabaseManager;
 
-import Enums.*;
+import General.*;
 
 public class DatabaseManagerFactory {
 
-    public DatabaseManager getDatabaseManager(DatabaseManagerType databaseManagerType) {
-        switch (databaseManagerType) {
-            case TEACHER:
-                return new TeacherManager();
-            case COURSE:
-                return new CourseManager();
-            default:
-                throw new IllegalArgumentException();
-        }
+    public DatabaseManager<Teacher> getTeacherManager() {
+        return new TeacherManager();
     }
-    
+
+    public DatabaseManager<Course> getCourseManager() {
+        return new CourseManager();
+    }
+
 }
