@@ -3,9 +3,13 @@ package General;
 import java.util.ArrayList;
 import java.util.Scanner;
 import DatabaseManager.*;
+<<<<<<< HEAD
 import Enums.CourseName;
 import Enums.SkillName;
 import Enums.WorkingDay;
+=======
+import Utils.PopulateDB;
+>>>>>>> 1eb1443ba38aaf1a04f55f511d70f43b1876346a
 
 public class App {
     private static DatabaseManager<Teacher> teacherManager;
@@ -17,6 +21,12 @@ public class App {
         DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
         teacherManager = databaseManagerFactory.getTeacherManager();
         courseManager = databaseManagerFactory.getCourseManager();
+        PopulateDB.poulateTeachersDB();
+        PopulateDB.populateCoursesDB();
+        ArrayList<Teacher> teachers = teacherManager.readFile(null);
+        ArrayList<Course> courses = courseManager.readFile(null);
+        System.out.println(teachers);
+        System.out.println(courses);
         scanner = new Scanner(System.in);
         while(isRun) {
             System.out.println("[menu] Enter Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");
