@@ -1,0 +1,10 @@
+package Enums;
+
+public enum CourseName {
+    PROGRAMMING,
+    SYSTEMS_AND_NETWORK,
+    DATABASE,
+    ENTERPRISE_CYBER_SECURITY,
+    SOFTWARE_ENGINEERING
+    
+}
