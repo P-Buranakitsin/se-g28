@@ -1,5 +1,8 @@
 package DatabaseManager;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import General.*;
 
@@ -10,6 +13,19 @@ public class CourseManager extends DatabaseManager<Course> {
 
     @Override
     public ArrayList<Course> readFile(String fileName) {
+        String filePath = "src/Database/Courses.tmp";
+        try (
+                ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
+            try {
+                ArrayList<Course> courses = (ArrayList<Course>) ois.readObject();
+                return courses;
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

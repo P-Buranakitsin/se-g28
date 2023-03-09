@@ -5,20 +5,43 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-import Enums.DegreeLevel;
-import General.Teacher;
+import Enums.*;
+import General.*;
 
 public class PopulateDB {
-    public static void poulateDB() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("src\\Database\\Teachers.tmp"))) {
-            ArrayList<Teacher> teachersTest = new ArrayList<>();
+
+    public static void poulateTeachersDB() {
+        String filePath = "src/Database/Teachers.tmp";
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            ArrayList<Teacher> teachers = new ArrayList<>();
             Teacher teacher = new Teacher("James", "Bond", DegreeLevel.DOCTORAL);
             Teacher teacher2 = new Teacher("Jake", "Mccune", DegreeLevel.MASTER);
-            teachersTest.add(teacher);
-            teachersTest.add(teacher2);
-            oos.writeObject(teachersTest);
+            Teacher teacher3 = new Teacher("Tobey", "Maguire", DegreeLevel.BACHELOR);
+            teachers.add(teacher);
+            teachers.add(teacher2);
+            teachers.add(teacher3);
+            oos.writeObject(teachers);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public static void populateCoursesDB() {
+        String filePath = "src/Database/Courses.tmp";
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            ArrayList<Course> courses = new ArrayList<>();
+            Course course = new Course(CourseName.DATABASE);
+            Course course2 = new Course(CourseName.ENTERPRISE_CYBER_SECURITY);
+            Course course3 = new Course(CourseName.PROGRAMMING);
+            Course course4 = new Course(CourseName.SOFTWARE_ENGINEERING);
+            courses.add(course);
+            courses.add(course2);
+            courses.add(course3);
+            courses.add(course4);
+            oos.writeObject(courses);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

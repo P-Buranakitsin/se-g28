@@ -15,8 +15,12 @@ public class App {
         DatabaseManagerFactory databaseManagerFactory = new DatabaseManagerFactory();
         teacherManager = databaseManagerFactory.getTeacherManager();
         courseManager = databaseManagerFactory.getCourseManager();
-        PopulateDB.poulateDB();
-        teacherManager.readFile(null);
+        PopulateDB.poulateTeachersDB();
+        PopulateDB.populateCoursesDB();
+        ArrayList<Teacher> teachers = teacherManager.readFile(null);
+        ArrayList<Course> courses = courseManager.readFile(null);
+        System.out.println(teachers);
+        System.out.println(courses);
         scanner = new Scanner(System.in);
         while(isRun) {
             System.out.println("[menu] Enter 3Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");
