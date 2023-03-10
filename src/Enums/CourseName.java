@@ -6,6 +6,7 @@ public enum CourseName {
     DATABASE,
     ENTERPRISE_CYBER_SECURITY,
     SOFTWARE_ENGINEERING;
+    
     public static void list() {
         CourseName[] courseNames = values();
         for (int i = 0; i < courseNames.length; i++) {

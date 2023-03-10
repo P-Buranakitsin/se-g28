@@ -5,6 +5,7 @@ public enum FieldOfStudy {
     PHYSICS,
     CHEMISTRY,
     MATHS;
+    
     public static void list() {
         FieldOfStudy[] fieldOfStudies = values();
         for (int i = 0; i < fieldOfStudies.length; i++) {
