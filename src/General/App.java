@@ -153,7 +153,7 @@ public class App {
         teacherManager.view();
         System.out.println("[admin] Enter teacher index to update their information: ");
         int index = scanner.nextInt();
-        ArrayList<Teacher> teachers = teacherManager.readFile(null);
+        ArrayList<Teacher> teachers = teacherManager.readFile();
         Teacher teacher = teachers.get(index-1);
         scanner.nextLine();
         System.out.println("[admin] Select a field to edit (1. for first name, 2. for last name, 3. for degree, 4. for skills, 5. for available day): ");

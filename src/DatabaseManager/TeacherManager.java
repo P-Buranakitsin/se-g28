@@ -43,7 +43,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
 
     @Override
     public void view() {
-        ArrayList<Teacher> teachers = readFile("src/Database/Teachers.tmp");
+        ArrayList<Teacher> teachers = readFile();
         if (teachers != null) {
             for (int i = 0; i < teachers.size(); i++) {
                 System.out.println(i+1 + ":" + teachers.get(i).toString());
@@ -60,7 +60,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
 
     @Override
     public void add(Teacher teacher) {
-        ArrayList<Teacher> teachers = readFile("src/Database/Teachers.tmp");
+        ArrayList<Teacher> teachers = readFile();
         teachers.add(teacher);
         writeFile("src/Database/Teachers.tmp", teachers);
     }
