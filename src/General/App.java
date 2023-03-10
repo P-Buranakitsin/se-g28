@@ -264,7 +264,7 @@ public class App {
         scanner.nextLine();
         return removeIndex;
     }
-    public static void updateTeachingRequirement(){
+    public static int updateTeachingRequirement(){
         System.out.println("[course director] Select the course to update teaching requirment:");
         courseManager.view();
         ArrayList<Course> courses = courseManager.readFile();
@@ -277,7 +277,66 @@ public class App {
         int removeIndex = scanner.nextInt()-1;
         scanner.nextLine();
         return removeIndex;
-
+    }
+    private static void editTeachingRequirement() {
+        teacherManager.view();
+        System.out.println("[admin] Enter course index to update their information: ");
+        int index = scanner.nextInt();
+        scanner.nextLine();
+        ArrayList<Teacher> teachers = teacherManager.readFile();
+        System.out.println("[admin] Select a field to edit (1. for first name, 2. for last name, 3. for degree, 4. for skills, 5. for available day): ");
+        int command = scanner.nextInt();
+        scanner.nextLine();
+        switch (command) {
+            case(1):
+                System.out.println("[admin] Enter teacher's first name: ");
+                String firstName = scanner.nextLine();
+                // teachers.get(index-1).setFirstName(firstName);
+                break;
+            case(2):
+                System.out.println("[admin] Enter teacher's last name: ");
+                String lastName = scanner.nextLine();
+                // teachers.get(index-1).setLastName(lastName);
+                // teacherManager.writeFile("", teachers);
+                break;
+            case(3):
+                System.out.println("[admin] Enter teacher's degree by the number of the following choices");
+                DegreeLevel.list();
+                index = scanner.nextInt();
+                scanner.nextLine();
+                DegreeLevel degreeLevel = DegreeLevel.values()[index-1];
+                System.out.println("[admin] Enter teacher's field of study by the number of the following choices");
+                FieldOfStudy.list();
+                int degree = scanner.nextInt();
+                scanner.nextLine();
+                FieldOfStudy fieldOfStudy = FieldOfStudy.values()[degree-1];
+                // teachers.get(index-1).setDegree(new Degree(degreeLevel, fieldOfStudy));
+                // teacherManager.writeFile("", teachers);
+                break;
+            case(4):
+                System.out.println("[admin] Enter teacher's skill separated by commas, with the following choices");
+                SkillName.list();
+                String[] skillInputs = scanner.nextLine().split(",");
+                ArrayList<Skill> skills = new ArrayList<>();
+                for (String skillInput : skillInputs) {
+                    SkillName skillName = SkillName.values()[Integer.parseInt(skillInput)-1];
+                    Skill skill = new Skill(skillName.toString());
+                    skills.add(skill);
+                }
+                // teachers.get(index-1).setSkills(skills);
+                // teacherManager.writeFile("", teachers);
+                break;
+            case(5):
+                System.out.println("[admin] Enter teacher's one available day, with the following choices");
+                WorkingDay.list();
+                WorkingDay workingDay = WorkingDay.values()[scanner.nextInt()-1];
+                scanner.nextLine();
+                // teachers.get(index-1).setAvailableDay(workingDay);
+                // teacherManager.writeFile("", teachers);
+                break;
+            default:
+                break;
+        }
     }
 
 
