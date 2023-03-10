@@ -54,9 +54,14 @@ class CourseManager extends DatabaseManager<Course> {
     }
 
     @Override
-    public void remove(int index) {
+    public void remove(int id) {
         ArrayList<Course> courses = readFile();
-        courses.remove(index);
+        for (Course course : courses) {
+            if (course.getId() == id) {
+                courses.remove(course);
+                break;
+            }
+        }
         writeFile(courses);
     }
 
@@ -68,9 +73,14 @@ class CourseManager extends DatabaseManager<Course> {
     }
 
     @Override
-    public void edit(int index, Course course) {
+    public void edit(int id, Course course) {
         ArrayList<Course> courses = readFile();
-        courses.set(index, course);
+        for (Course c : courses) {
+            if (c.getId() == id) {
+                c = course;
+                break;
+            }
+        }
         writeFile(courses);
     }
 }

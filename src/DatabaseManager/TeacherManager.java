@@ -55,9 +55,14 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void remove(int index) {
+    public void remove(int id) {
         ArrayList<Teacher> teachers = readFile();
-        teachers.remove(index);
+        for (Teacher teacher : teachers) {
+            if (teacher.getId() == id) {
+                teachers.remove(teacher);
+                break;
+            }
+        }
         writeFile(teachers);
     }
 
@@ -69,9 +74,14 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void edit(int index, Teacher teacher) {
+    public void edit(int id, Teacher teacher) {
         ArrayList<Teacher> teachers = readFile();
-        teachers.set(index, teacher);
+        for (Teacher t : teachers) {
+            if (t.getId() == id) {
+                t = teacher;
+                break;
+            }
+        }
         writeFile(teachers);
     }
 }
