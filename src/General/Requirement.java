@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 import Enums.WorkingDay;
-
+import Enums.SkillName;
 public class Requirement implements Serializable {
     private WorkingDay teachingDay;
     private ArrayList<Skill> skills;
@@ -24,6 +24,12 @@ public class Requirement implements Serializable {
     }
     public void setSkills(ArrayList<Skill> skills) {
         this.skills = skills;
+    }
+    public void setTeachingDay(WorkingDay teachingDay) {
+        this.teachingDay = teachingDay;
+    }
+    public WorkingDay getTeachingDay() {
+        return teachingDay;
     }
 
 

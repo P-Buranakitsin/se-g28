@@ -25,4 +25,16 @@ public class Course implements Storable, Serializable {
     public Requirement getRequirement() {
         return requirement;
     }
+    public void setRequirement(Requirement requirement) {
+        this.requirement = requirement;
+    }
+    public String toString() {
+        String skill = "";
+        for (Skill s : this.requirement.getSkills()) {
+            skill += s.toString();
+            skill += " ";
+        }
+        return this.name + " "  + this.requirement.getTeachingDay() + skill;
+    }
+
 }
