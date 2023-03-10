@@ -10,7 +10,7 @@ class CourseManager extends DatabaseManager<Course> {
     public CourseManager() {}
 
     @Override
-    public ArrayList<Course> readFile(String fileName) {
+    public ArrayList<Course> readFile() {
         String filePath = "src/Database/Courses.tmp";
         try (
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
