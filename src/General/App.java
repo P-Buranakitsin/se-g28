@@ -129,11 +129,11 @@ public class App {
     }
 
     private static void removeTeacher() {
-        courseManager.view();
+        teacherManager.view();
         System.out.println("[admin] Enter teacher index to delete their information: ");
         int index = scanner.nextInt();
         scanner.nextLine();
-        courseManager.remove(index);
+        teacherManager.remove(index);
     }
 
     private static void editTeacher() {
@@ -254,7 +254,7 @@ public class App {
         courseManager.add(course);
 
     }
-    public static int removeTeachingRequirement(){
+    public static void removeTeachingRequirement(){
         System.out.println("[course director] Select the course to remove teaching requirment:");
         courseManager.view();
         ArrayList<Course> courses = courseManager.readFile();
@@ -264,7 +264,7 @@ public class App {
         course.getRequirement().view();
         int removeIndex = scanner.nextInt()-1;
         scanner.nextLine();
-        return removeIndex;
+        courseManager.remove(removeIndex);
     }
     private static void editTeachingRequirement() {
         courseManager.view();
