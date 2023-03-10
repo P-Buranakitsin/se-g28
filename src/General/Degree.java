@@ -30,8 +30,5 @@ public class Degree implements Serializable {
     @Override
     public String toString() {
         return level.toString() + ", " + field.toString();
-
-    
-    
     }
 }
