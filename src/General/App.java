@@ -18,8 +18,8 @@ public class App {
         courseManager = databaseManagerFactory.getCourseManager();
         PopulateDB.poulateTeachersDB();
         PopulateDB.populateCoursesDB();
-        ArrayList<Teacher> teachers = teacherManager.readFile(null);
-        ArrayList<Course> courses = courseManager.readFile(null);
+        ArrayList<Teacher> teachers = teacherManager.readFile();
+        ArrayList<Course> courses = courseManager.readFile();
         System.out.println(teachers);
         System.out.println(courses);
         scanner = new Scanner(System.in);

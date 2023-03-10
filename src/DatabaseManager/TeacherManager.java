@@ -14,7 +14,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     public TeacherManager() {}
 
     @Override
-    public ArrayList<Teacher> readFile(String fileName) {
+    public ArrayList<Teacher> readFile() {
         String filePath = "src/Database/Teachers.tmp";
         try (
                 ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
