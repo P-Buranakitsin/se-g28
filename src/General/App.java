@@ -116,6 +116,7 @@ public class App {
                     }
                     break;
                 case(2):
+                    courseManager.view();
                     break;
                 case(3):
                     exit = true;
@@ -279,6 +280,7 @@ public class App {
         switch (command) {
             case(1):
                 System.out.println("[course director] Enter teaching day: ");
+                WorkingDay.list();
                 WorkingDay workingDay = WorkingDay.values()[scanner.nextInt()-1];
                 course.getRequirement().setTeachingDay(workingDay);
                 courseManager.edit(index-1, course);
@@ -299,7 +301,5 @@ public class App {
                 break;
         }
     }
-
-
 
 }
