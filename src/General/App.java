@@ -158,18 +158,19 @@ public class App {
         System.out.println("[admin] Select a field to edit (1. for first name, 2. for last name, 3. for degree, 4. for skills, 5. for available day): ");
         int command = scanner.nextInt();
         scanner.nextLine();
+        Teacher teacher = teachers.get(index-1);
         switch (command) {
             case(1):
                 System.out.println("[admin] Enter teacher's first name: ");
                 String firstName = scanner.nextLine();
-                // teachers.get(index-1).setFirstName(firstName);
+                teacher.setFirstName(firstName);
+                teacherManager.edit(index-1, teacher);
                 break;
             case(2):
                 System.out.println("[admin] Enter teacher's last name: ");
                 String lastName = scanner.nextLine();
-                // teachers.get(index-1).setLastName(lastName);
-                // teacherManager.writeFile("", teachers);
-                break;
+                teacher.setLastName(lastName);
+                teacherManager.edit(index-1, teacher);
             case(3):
                 System.out.println("[admin] Enter teacher's degree by the number of the following choices");
                 DegreeLevel.list();
@@ -181,8 +182,8 @@ public class App {
                 int degree = scanner.nextInt();
                 scanner.nextLine();
                 FieldOfStudy fieldOfStudy = FieldOfStudy.values()[degree-1];
-                // teachers.get(index-1).setDegree(new Degree(degreeLevel, fieldOfStudy));
-                // teacherManager.writeFile("", teachers);
+                teacher.setDegree(new Degree(degreeLevel, fieldOfStudy));
+                teacherManager.edit(index-1, teacher);
                 break;
             case(4):
                 System.out.println("[admin] Enter teacher's skill separated by commas, with the following choices");
@@ -194,16 +195,16 @@ public class App {
                     Skill skill = new Skill(skillName.toString());
                     skills.add(skill);
                 }
-                // teachers.get(index-1).setSkills(skills);
-                // teacherManager.writeFile("", teachers);
+                teacher.setSkills(skills);
+                teacherManager.edit(index-1, teacher);
                 break;
             case(5):
                 System.out.println("[admin] Enter teacher's one available day, with the following choices");
                 WorkingDay.list();
                 WorkingDay workingDay = WorkingDay.values()[scanner.nextInt()-1];
                 scanner.nextLine();
-                // teachers.get(index-1).setAvailableDay(workingDay);
-                // teacherManager.writeFile("", teachers);
+                teacher.setAvailableDay(workingDay);
+                teacherManager.edit(index-1, teacher);
                 break;
             default:
                 break;
