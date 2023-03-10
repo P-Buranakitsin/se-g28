@@ -14,9 +14,9 @@ public class PopulateDB {
         String filePath = "src/Database/Teachers.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             ArrayList<Teacher> teachers = new ArrayList<>();
-            Teacher teacher = new Teacher("James", "Bond", DegreeLevel.DOCTORAL);
-            Teacher teacher2 = new Teacher("Jake", "Mccune", DegreeLevel.MASTER);
-            Teacher teacher3 = new Teacher("Tobey", "Maguire", DegreeLevel.BACHELOR);
+            Teacher teacher = new Teacher("James", "Bond", new Degree(DegreeLevel.DOCTORAL, FieldOfStudy.COMPUTING_SCIENCE), new ArrayList<>(), WorkingDay.FRIDAY);
+            Teacher teacher2 = new Teacher("Jake", "Mccune", new Degree(DegreeLevel.MASTER, FieldOfStudy.CHEMISTRY), new ArrayList<>(), WorkingDay.THURSDAY);
+            Teacher teacher3 = new Teacher("Tobey", "Maguire", new Degree(DegreeLevel.BACHELOR, FieldOfStudy.MATHS), new ArrayList<>(), WorkingDay.WEDNESDAY);
             teachers.add(teacher);
             teachers.add(teacher2);
             teachers.add(teacher3);

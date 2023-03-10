@@ -38,7 +38,7 @@ public class TeacherManager extends DatabaseManager<Teacher> implements Serializ
     public void writeFile(String fileName, ArrayList<Teacher> teachers) {
         String filePath = "src/Database/Teachers.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
-
+            oos.writeObject(teachers);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -46,7 +46,14 @@ public class TeacherManager extends DatabaseManager<Teacher> implements Serializ
 
     @Override
     public void view() {
-
+        ArrayList<Teacher> teachers = readFile("src/Database/Teachers.tmp");
+        if (teachers != null) {
+            for (int i = 0; i < teachers.size(); i++) {
+                System.out.println(i+1 + ":" + teachers.get(i).toString());
+            }
+        } else {
+            System.out.println("There is no teacher in this database.");
+        }
     }
 
     @Override
@@ -56,11 +63,13 @@ public class TeacherManager extends DatabaseManager<Teacher> implements Serializ
 
     @Override
     public void add(Teacher teacher) {
-
+        ArrayList<Teacher> teachers = readFile("src/Database/Teachers.tmp");
+        teachers.add(teacher);
+        writeFile("src/Database/Teachers.tmp", teachers);
     }
 
     @Override
     public void edit(Teacher teacher) {
-
+        
     }
 }
