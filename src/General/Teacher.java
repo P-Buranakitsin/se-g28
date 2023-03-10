@@ -19,7 +19,7 @@ public class Teacher implements Storable, Serializable {
         this.firstName = firstName;
         this.lastName = lastName;
         this.degree = degree;
-        this.skills = new ArrayList<>();
+        this.skills = skills;
         this.availableDay = availableDay;
     }
 
@@ -35,12 +35,49 @@ public class Teacher implements Storable, Serializable {
         return degree;
     }
 
+    public WorkingDay getAvailableDay() {
+        return availableDay;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public ArrayList<Skill> getSkills() {
+        return skills;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setDegree(Degree degree) {
+        this.degree = degree;
+    }
+
+    public void setSkills(ArrayList<Skill> skills) {
+        this.skills = skills;
+    }
+
+    public void setAvailableDay(WorkingDay availableDay) {
+        this.availableDay = availableDay;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+
     @Override
     public String toString() {
-        return firstName + " " + lastName + " " + degree.toString();
+        String skill = "";
+        for (Skill s : skills) {
+            skill += s.toString();
+            skill += " ";
+        }
+        return firstName + " " + lastName + " " + degree.toString() + " " + availableDay.toString() + skill;
     }
 }

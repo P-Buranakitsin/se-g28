@@ -7,11 +7,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
+
 import General.*;
 
 class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
 
-    public TeacherManager() {}
+    protected TeacherManager() {}
 
     @Override
     public ArrayList<Teacher> readFile() {
@@ -32,7 +33,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void writeFile(String fileName, ArrayList<Teacher> teachers) {
+    public void writeFile(ArrayList<Teacher> teachers) {
         String filePath = "src/Database/Teachers.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(teachers);
@@ -46,7 +47,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
         ArrayList<Teacher> teachers = readFile();
         if (teachers != null) {
             for (int i = 0; i < teachers.size(); i++) {
-                System.out.println(i+1 + ":" + teachers.get(i).toString());
+                System.out.println(i + 1 + ":" + teachers.get(i).toString());
             }
         } else {
             System.out.println("There is no teacher in this database.");
@@ -54,19 +55,23 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void remove(Teacher teacher) {
-
+    public void remove(int index) {
+        ArrayList<Teacher> teachers = readFile();
+        teachers.remove(index);
+        writeFile(teachers);
     }
 
     @Override
     public void add(Teacher teacher) {
         ArrayList<Teacher> teachers = readFile();
         teachers.add(teacher);
-        writeFile("src/Database/Teachers.tmp", teachers);
+        writeFile(teachers);
     }
 
     @Override
-    public void edit(Teacher teacher) {
-        
+    public void edit(int index, Teacher teacher) {
+        ArrayList<Teacher> teachers = readFile();
+        teachers.set(index, teacher);
+        writeFile(teachers);
     }
 }
