@@ -7,9 +7,12 @@ import Interfaces.*;
 
 public class Course implements Storable, Serializable {
     private CourseName name;
+    private Requirement requirement;
+    private Teacher teacher;
 
-    public Course(CourseName name) {
-        this.name = name;
+    public Course(CourseName course,Requirement requirement) {
+        this.name = course;
+        this.requirement = requirement;
     }
 
     public CourseName getName() {
@@ -18,5 +21,8 @@ public class Course implements Storable, Serializable {
 
     public void setName(CourseName name) {
         this.name = name;
+    }
+    public Requirement getRequirement() {
+        return requirement;
     }
 }
