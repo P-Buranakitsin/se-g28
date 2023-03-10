@@ -37,4 +37,8 @@ public class Course implements Storable, Serializable {
         return this.name + " "  + this.requirement.getTeachingDay() + skill;
     }
 
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
 }

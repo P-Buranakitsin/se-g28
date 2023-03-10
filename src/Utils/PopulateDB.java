@@ -30,10 +30,6 @@ public class PopulateDB {
         String filePath = "src/Database/Courses.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             ArrayList<Course> courses = new ArrayList<>();
-            // Course course = new Course(CourseName.DATABASE);
-            // Course course2 = new Course(CourseName.ENTERPRISE_CYBER_SECURITY);
-            // Course course3 = new Course(CourseName.PROGRAMMING);
-            // Course course4 = new Course(CourseName.SOFTWARE_ENGINEERING);
             Course course = new Course(CourseName.DATABASE, new Requirement(WorkingDay.FRIDAY,new ArrayList<Skill>()));
             Course course2 = new Course(CourseName.ENTERPRISE_CYBER_SECURITY, new Requirement(WorkingDay.MONDAY,new ArrayList<Skill>()));
             Course course3 = new Course(CourseName.PROGRAMMING, new Requirement(WorkingDay.WEDNESDAY,new ArrayList<Skill>()));
