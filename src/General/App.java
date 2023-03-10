@@ -268,11 +268,11 @@ public class App {
     }
     private static void editTeachingRequirement() {
         courseManager.view();
-        System.out.println("[admin] Enter course index to update skill information: ");
+        System.out.println("[course director] Enter course index to update skill information: ");
         int index = scanner.nextInt();
         scanner.nextLine();
         ArrayList<Course> courses = courseManager.readFile();
-        System.out.println("[admin] Select a field to edit (1. for teaching day, 2. for skill): ");
+        System.out.println("[course director] Select a field to edit (1. for teaching day, 2. for skill): ");
         int command = scanner.nextInt();
         scanner.nextLine();
         Course course = courses.get(index-1);
