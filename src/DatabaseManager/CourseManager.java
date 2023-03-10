@@ -46,7 +46,7 @@ class CourseManager extends DatabaseManager<Course> {
         ArrayList<Course> courses = readFile();
         if (courses != null) {
             for (int i = 0; i < courses.size(); i++) {
-                System.out.println(i + 1 + ":" + courses.get(i).toString());
+                System.out.println(courses.get(i).toString());
             }
         } else {
             System.out.println("There is no course in this database.");

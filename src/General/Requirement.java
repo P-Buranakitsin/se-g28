@@ -8,9 +8,12 @@ import Enums.SkillName;
 public class Requirement implements Serializable {
     private WorkingDay teachingDay;
     private ArrayList<Skill> skills;
-    public Requirement(WorkingDay teachingDay, ArrayList<Skill> skills){
+    private Degree degree;
+
+    public Requirement(WorkingDay teachingDay, ArrayList<Skill> skills, Degree degree){
         this. teachingDay = teachingDay;
-        this.skills  = new ArrayList<>();
+        this.skills  = skills;
+        this.degree = degree;
     }
 
     public void view() {
@@ -32,6 +35,11 @@ public class Requirement implements Serializable {
         return teachingDay;
     }
 
+    public void setDegree(Degree degree) {
+        this.degree = degree;
+    }
 
-    
+    public Degree getDegree() {
+        return degree;
+    }
 }

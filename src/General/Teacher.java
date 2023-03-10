@@ -8,6 +8,8 @@ import Enums.WorkingDay;
 import Interfaces.*;
 
 public class Teacher implements Storable, Serializable {
+    private static int count = 0;
+    private int id;
     private String firstName;
     private String lastName;
     private Degree degree;
@@ -21,6 +23,7 @@ public class Teacher implements Storable, Serializable {
         this.degree = degree;
         this.skills = skills;
         this.availableDay = availableDay;
+        this.id = ++count;
     }
 
     public String getFirstName() {
@@ -45,6 +48,10 @@ public class Teacher implements Storable, Serializable {
 
     public ArrayList<Skill> getSkills() {
         return skills;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setFirstName(String firstName) {
@@ -78,6 +85,6 @@ public class Teacher implements Storable, Serializable {
             skill += s.toString();
             skill += " ";
         }
-        return firstName + " " + lastName + " " + degree.toString() + " " + availableDay.toString() + skill;
+        return  this.id + ": " + firstName + " " + lastName + " " + degree.toString() + " " + availableDay.toString() + skill;
     }
 }

@@ -6,6 +6,8 @@ import Enums.*;
 import Interfaces.*;
 
 public class Course implements Storable, Serializable {
+    private static int count = 0;
+    private int id;
     private CourseName name;
     private Requirement requirement;
     private Teacher teacher;
@@ -13,6 +15,7 @@ public class Course implements Storable, Serializable {
     public Course(CourseName course,Requirement requirement) {
         this.name = course;
         this.requirement = requirement;
+        this.id = ++count;
     }
 
     public CourseName getName() {
@@ -34,7 +37,11 @@ public class Course implements Storable, Serializable {
             skill += s.toString();
             skill += " ";
         }
-        return this.name + " "  + this.requirement.getTeachingDay() + skill;
+        return this.id + ": " + this.name + " "  + this.requirement.getTeachingDay() + skill;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setTeacher(Teacher teacher) {

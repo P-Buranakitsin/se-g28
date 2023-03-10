@@ -47,7 +47,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
         ArrayList<Teacher> teachers = readFile();
         if (teachers != null) {
             for (int i = 0; i < teachers.size(); i++) {
-                System.out.println(i + 1 + ":" + teachers.get(i).toString());
+                System.out.println(teachers.get(i).toString());
             }
         } else {
             System.out.println("There is no teacher in this database.");
