@@ -119,24 +119,27 @@ public class App {
                 case(2):
                     courseManager.view();
                     System.out.println("[admin] Enter course index to fill teacher");
-                    int courseIndex = scanner.nextInt();
+                    int courseId = scanner.nextInt();
                     scanner.nextLine();
-                    Course course = courseManager.readFile().get(courseIndex-1);
+                    ArrayList<Course> courses = courseManager.readFile();
+                    Course course = null;
+                    for (Course c : courses) {
+                        if(c.getId() == courseId) course = c;
+                    }
                     ArrayList<Teacher> teachers = teacherManager.readFile();
                     ArrayList<Teacher> matchedTeachers = TeacherMatcher.findMatchedTeachers(teachers, course);
                     for (int i = 0; i < matchedTeachers.size(); i++) {
                         System.out.println(i+1 + matchedTeachers.get(i).toString());
                     }
-                    System.out.println("[admin] Enter teacher index to fill this course " + course.toString());
-                    int teacherIndex = scanner.nextInt();
+                    System.out.println("[admin] Enter teacher id to fill this course " + course.toString());
+                    int teacherId = scanner.nextInt();
                     scanner.nextLine();
-                    Teacher selectedTeacher = matchedTeachers.get(teacherIndex-1);
-                    // int mappedTeacherIndex = teachers.indexOf(selectedTeacher);
-                    // TeacherMatcher.assignTeacherToCourse(teacherManager, courseManager, selectedTeacher, course);
+                    TeacherMatcher.assignTeacherToCourse(teacherManager, courseManager, teacherId, courseId);
                     break;
                 case(3):
                     exit = true;
                     break;
+                
                 default:
                     System.out.println("Invalid command");
                     break;

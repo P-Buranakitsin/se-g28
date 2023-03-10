@@ -8,17 +8,21 @@ import Interfaces.*;
 
 public class TeacherMatcher {
 
-    public static void assignTeacherToCourse(ArrayList<Teacher> teachers, ArrayList<Course> courses , Teacher teacher, Course course) {
-        // ArrayList<Teacher> teachers = tManager.readFile();
-        // ArrayList<Course> courses = cManager.readFile();
-        int teacherIndex = teachers.indexOf(teacher);
-        int courseIndex = courses.indexOf(course);
-        teacher.setCourse(course);
+    public static void assignTeacherToCourse(DatabaseManager<Teacher> tManager, DatabaseManager<Course> cManager , int teacherId, int courseId) {
+        ArrayList<Teacher> teachers = tManager.readFile();
+        ArrayList<Course> courses = cManager.readFile();
+        Course course = null;
+        Teacher teacher = null;
+        for (Course c : courses) {
+            if(c.getId() == courseId) course = c;
+        }
+        for (Teacher t : teachers) {
+            if(t.getId() == teacherId) teacher = t;
+        }
         course.setTeacher(teacher);
-        teachers.set(teacherIndex, teacher);
-        courses.set(courseIndex, course);
-        // tManager.writeFile(teachers);
-        // cManager.writeFile(courses);
+        teacher.setCourse(course);
+        cManager.edit(courseId, course);
+        tManager.edit(teacherId, teacher);
     }
 
     public static ArrayList<Teacher> findMatchedTeachers(ArrayList<Teacher> teachers, Course course) {  

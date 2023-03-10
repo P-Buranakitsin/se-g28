@@ -75,9 +75,9 @@ class CourseManager extends DatabaseManager<Course> {
     @Override
     public void edit(int id, Course course) {
         ArrayList<Course> courses = readFile();
-        for (Course c : courses) {
-            if (c.getId() == id) {
-                c = course;
+        for (int i = 0; i < courses.size(); i++) {
+            if (courses.get(i).getId() == id) {
+                courses.set(i, course);
                 break;
             }
         }

@@ -76,9 +76,9 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     @Override
     public void edit(int id, Teacher teacher) {
         ArrayList<Teacher> teachers = readFile();
-        for (Teacher t : teachers) {
-            if (t.getId() == id) {
-                t = teacher;
+        for (int i = 0; i < teachers.size(); i++) {
+            if(teachers.get(i).getId() == id) {
+                teachers.set(i, teacher);
                 break;
             }
         }
