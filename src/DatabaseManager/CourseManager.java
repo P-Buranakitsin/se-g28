@@ -6,10 +6,8 @@ import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import General.*;
 
-public class CourseManager extends DatabaseManager<Course> {
-    public CourseManager() {
-        super();
-    }
+class CourseManager extends DatabaseManager<Course> {
+    public CourseManager() {}
 
     @Override
     public ArrayList<Course> readFile(String fileName) {

@@ -9,12 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import General.*;
 
-public class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
-    private ArrayList<Skill> skills;
+class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
 
-    public TeacherManager() {
-        this.skills = new ArrayList<>();
-    }
+    public TeacherManager() {}
 
     @Override
     public ArrayList<Teacher> readFile(String fileName) {
