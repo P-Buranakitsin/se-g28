@@ -1,6 +1,8 @@
 package Enums;
 
-public enum SkillName {
+import java.io.Serializable;
+
+public enum SkillName implements Serializable {
     JAVA,
     PYTHON,
     SQL,

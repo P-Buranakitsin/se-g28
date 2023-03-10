@@ -62,7 +62,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     public void add(Teacher teacher) {
         ArrayList<Teacher> teachers = readFile();
         teachers.add(teacher);
-        writeFile("src/Database/Teachers.tmp", teachers);
+        writeFile("", teachers);
     }
 
     @Override
