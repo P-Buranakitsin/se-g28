@@ -11,7 +11,7 @@ import General.*;
 
 class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
 
-    public TeacherManager() {}
+    protected TeacherManager() {}
 
     @Override
     public ArrayList<Teacher> readFile() {
@@ -32,7 +32,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void writeFile(String fileName, ArrayList<Teacher> teachers) {
+    public void writeFile(ArrayList<Teacher> teachers) {
         String filePath = "src/Database/Teachers.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(teachers);
@@ -62,7 +62,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     public void add(Teacher teacher) {
         ArrayList<Teacher> teachers = readFile();
         teachers.add(teacher);
-        writeFile("src/Database/Teachers.tmp", teachers);
+        writeFile(teachers);
     }
 
     @Override

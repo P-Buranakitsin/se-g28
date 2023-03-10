@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import General.*;
 
 class CourseManager extends DatabaseManager<Course> {
-    public CourseManager() {}
+    protected CourseManager() {}
 
     @Override
     public ArrayList<Course> readFile() {
@@ -28,7 +28,7 @@ class CourseManager extends DatabaseManager<Course> {
     }
 
     @Override
-    public void writeFile(String fileName, ArrayList<Course> courses) {
+    public void writeFile(ArrayList<Course> courses) {
 
     }
 
