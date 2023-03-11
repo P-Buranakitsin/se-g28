@@ -14,6 +14,7 @@ public class Teacher implements Storable, Serializable {
     private String lastName;
     private Degree degree;
     private ArrayList<Skill> skills;
+    private ArrayList<Skill> missingSkills;
     private Course course;
     private WorkingDay availableDay;
 
@@ -23,6 +24,8 @@ public class Teacher implements Storable, Serializable {
         this.degree = degree;
         this.skills = skills;
         this.availableDay = availableDay;
+        this.missingSkills = new ArrayList<>();
+        this.course = null;
         this.id = ++count;
     }
 
@@ -78,13 +81,39 @@ public class Teacher implements Storable, Serializable {
         this.course = course;
     }
 
+    public ArrayList<Skill> getMissingSkills() {
+        return missingSkills;
+    }
+
+    public void setMissingSkills(ArrayList<Skill> missingSkills) {
+        this.missingSkills = missingSkills;
+    }
+
     @Override
     public String toString() {
-        String skill = "";
+        String skill = " Skills:";
+        String missingSkill = " Missing Skills:";
         for (Skill s : skills) {
             skill += s.toString();
             skill += " ";
         }
-        return  this.id + ": " + firstName + " " + lastName + " " + degree.toString() + " " + availableDay.toString() + skill;
+        String c = " teach:";
+        if (this.course != null) {
+            c += this.course.getName();
+        }
+        else {
+            c += "None";
+        }
+        if (missingSkills != null) {
+            for (Skill ms : missingSkills) {
+                missingSkill += ms.toString();
+                missingSkill += " ";
+            }
+        }
+        else {
+            missingSkill += " null";
+        }
+        
+        return  this.id + ": " + firstName + " " + lastName + " " + degree.toString() + " " + availableDay.toString() + skill + c + missingSkill;
     }
 }

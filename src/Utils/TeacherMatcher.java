@@ -1,7 +1,9 @@
 package Utils;
 
 import java.util.ArrayList;
-
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import DatabaseManager.DatabaseManager;
 import General.*;
 import Interfaces.*;
@@ -19,10 +21,52 @@ public class TeacherMatcher {
         for (Teacher t : teachers) {
             if(t.getId() == teacherId) teacher = t;
         }
+        ArrayList<Skill> courseSet = course.getRequirement().getSkills();
+        ArrayList<Skill> teacherSet = teacher.getSkills();
+        for (int i = 0; i < courseSet.size(); i++) {
+            for (int j = 0; j < teacherSet.size(); j++) {
+                if(courseSet.get(i).toString().equals(teacherSet.get(j).toString())) {
+                    courseSet.remove(i);
+                    i--;
+                    break;
+                }
+            }
+        }
+        // ArrayList<Skill> missingSkill = new ArrayList<>();
+        // missingSkill.addAll(courseSet);
+        teacher.setMissingSkills(courseSet);
         course.setTeacher(teacher);
         teacher.setCourse(course);
         cManager.edit(courseId, course);
         tManager.edit(teacherId, teacher);
+    }
+
+    public static void viewNonTeacher(DatabaseManager<Course> cManager) {
+        ArrayList<Course> courses = cManager.readFile();
+        if (courses != null) {
+            for (Course course : courses) {
+                if (course.getTeacher() != null) {
+                    continue;
+                }
+                System.out.println(course.toString());
+            }
+        } else {
+            System.out.println("There is no course in this database.");
+        }
+    }
+
+    public static void viewHasTeacher(DatabaseManager<Course> cManager) {
+        ArrayList<Course> courses = cManager.readFile();
+        if (courses != null) {
+            for (Course course : courses) {
+                if (course.getTeacher() == null) {
+                    continue;
+                }
+                System.out.println(course.toString());
+            }
+        } else {
+            System.out.println("There is no course in this database.");
+        }
     }
 
     public static ArrayList<Teacher> findMatchedTeachers(ArrayList<Teacher> teachers, Course course) {  
@@ -37,6 +81,25 @@ public class TeacherMatcher {
             result.add(teacher);
         }
         return result;
+    }
+
+    public static void removeAssignedTeacher(DatabaseManager<Teacher> tManager, DatabaseManager<Course> cManager, int courseId) {
+        ArrayList<Teacher> teachers = tManager.readFile();
+        ArrayList<Course> courses = cManager.readFile();
+        Course course = null;
+        Teacher teacher = null;
+        for (Course c : courses) {
+            if(c.getId() == courseId) course = c;
+        }
+        int teacherId = course.getTeacher().getId();
+        for (Teacher t : teachers) {
+            if(t.getId() == teacherId) teacher = t;
+        }
+        course.setTeacher(null);
+        teacher.setCourse(null);
+        teacher.setMissingSkills(null);
+        cManager.edit(courseId, course);
+        tManager.edit(teacherId, teacher);
     }
 
 }

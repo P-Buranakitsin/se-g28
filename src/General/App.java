@@ -68,10 +68,6 @@ public class App {
                     break;
                 case(3):
                     editTeachingRequirement();
-                    // to do
-                    CourseName.list();
-                    System.out.println("Enter course index to update: ");
-                    System.out.println("Enter field to update (1 for course name, 2 for teaching day, 3 skill): ");
                     break;
                 case(4):
                     // to do
@@ -90,7 +86,7 @@ public class App {
     private static void adminMenu() {
         boolean exit = false;
         while(!exit) {
-            System.out.println("[admin] Enter command (1. for teacher menu, 2. for assign teacher to course, 3. for exit): ");
+            System.out.println("[admin] Enter command (1. for teacher menu, 2. for assign teacher to course, 3. for remove assigned teacher, 4. for exit): ");
             int command = scanner.nextInt();
             scanner.nextLine();
             switch(command) {
@@ -117,8 +113,8 @@ public class App {
                     }
                     break;
                 case(2):
-                    courseManager.view();
-                    System.out.println("[admin] Enter course index to fill teacher");
+                    TeacherMatcher.viewNonTeacher(courseManager);
+                    System.out.println("[admin] Enter course id to fill teacher");
                     int courseId = scanner.nextInt();
                     scanner.nextLine();
                     ArrayList<Course> courses = courseManager.readFile();
@@ -129,7 +125,7 @@ public class App {
                     ArrayList<Teacher> teachers = teacherManager.readFile();
                     ArrayList<Teacher> matchedTeachers = TeacherMatcher.findMatchedTeachers(teachers, course);
                     for (int i = 0; i < matchedTeachers.size(); i++) {
-                        System.out.println(i+1 + matchedTeachers.get(i).toString());
+                        System.out.println(matchedTeachers.get(i).toString());
                     }
                     System.out.println("[admin] Enter teacher id to fill this course " + course.toString());
                     int teacherId = scanner.nextInt();
@@ -137,6 +133,13 @@ public class App {
                     TeacherMatcher.assignTeacherToCourse(teacherManager, courseManager, teacherId, courseId);
                     break;
                 case(3):
+                    TeacherMatcher.viewHasTeacher(courseManager);
+                    System.out.println("[admin] Enter course id to remove teacher");
+                    int courseIdtoRemove = scanner.nextInt();
+                    scanner.nextLine();
+                    TeacherMatcher.removeAssignedTeacher(teacherManager, courseManager, courseIdtoRemove);
+                    break;
+                case(4):
                     exit = true;
                     break;
                 
@@ -287,7 +290,7 @@ public class App {
         courseManager.add(course);
 
     }
-    public static void removeTeachingRequirement(){
+    public static void removeTeachingRequirement() {
         System.out.println("[course director] Select the course to remove teaching requirment:");
         courseManager.view();
         ArrayList<Course> courses = courseManager.readFile();
@@ -301,7 +304,7 @@ public class App {
     }
     private static void editTeachingRequirement() {
         courseManager.view();
-        System.out.println("[course director] Enter course index to update skill information: ");
+        System.out.println("[course director] Enter course id to update skill information: ");
         int id = scanner.nextInt();
         scanner.nextLine();
         ArrayList<Course> courses = courseManager.readFile();
@@ -350,5 +353,4 @@ public class App {
                 break;
         }
     }
-
 }

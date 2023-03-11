@@ -15,6 +15,7 @@ public class Course implements Storable, Serializable {
     public Course(CourseName course,Requirement requirement) {
         this.name = course;
         this.requirement = requirement;
+        this.teacher = null;
         this.id = ++count;
     }
 
@@ -22,12 +23,18 @@ public class Course implements Storable, Serializable {
         return this.name;
     }
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
     public void setName(CourseName name) {
         this.name = name;
     }
+
     public Requirement getRequirement() {
         return requirement;
     }
+
     public void setRequirement(Requirement requirement) {
         this.requirement = requirement;
     }
