@@ -41,7 +41,7 @@ public class Course implements Storable, Serializable {
         if (teacher != null) {
             t = teacher.toString();
         }
-        return this.id + ": " + this.name + " "  + this.requirement.getTeachingDay() + skill + " teached by " + t;
+        return this.id + ": " + this.name + " "  + this.requirement.getTeachingDay() + skill + " taught by " + t;
     }
 
     public int getId() {
