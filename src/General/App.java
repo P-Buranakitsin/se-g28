@@ -21,8 +21,6 @@ public class App {
         PopulateDB.populateCoursesDB();
         ArrayList<Teacher> teachers = teacherManager.readFile();
         ArrayList<Course> courses = courseManager.readFile();
-        System.out.println(teachers);
-        System.out.println(courses);
         scanner = new Scanner(System.in);
         while(isRun) {
             System.out.println("[menu] Enter Role or Exit (1. Course Director, 2. Admin, 3. Exit): ");
@@ -54,7 +52,7 @@ public class App {
     private static void courseDirectorMenu() {
         boolean exit = false;
         while(!exit) {
-            System.out.println("[course director] Enter command (1. for create, 2. for view, 3. for update, 4. for delete teacher, 5. for exit): ");
+            System.out.println("[course director] Enter command (1. for create, 2. for view, 3. for update, 4. for delete course, 5. for exit): ");
             int command = scanner.nextInt();
             scanner.nextLine();
             switch(command) {
@@ -290,18 +288,15 @@ public class App {
         courseManager.add(course);
 
     }
+
     public static void removeTeachingRequirement() {
         System.out.println("[course director] Select the course to remove teaching requirment:");
         courseManager.view();
-        ArrayList<Course> courses = courseManager.readFile();
-        Course course = courses.get(scanner.nextInt()-1);
-        scanner.nextLine();
-        System.out.println("[course director] Select teaching requirement to remove");
-        course.getRequirement().view();
-        int id = scanner.nextInt()-1;
+        int id = scanner.nextInt();
         scanner.nextLine();
         courseManager.remove(id);
     }
+
     private static void editTeachingRequirement() {
         courseManager.view();
         System.out.println("[course director] Enter course id to update skill information: ");

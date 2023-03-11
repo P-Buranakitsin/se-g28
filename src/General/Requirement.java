@@ -21,6 +21,7 @@ public class Requirement implements Serializable {
         }
     
     }
+    
     public ArrayList<Skill> getSkills() {
         return skills;
     }
