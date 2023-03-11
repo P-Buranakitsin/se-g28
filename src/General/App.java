@@ -118,7 +118,7 @@ public class App {
                     break;
                 case(2):
                     TeacherMatcher.viewNonTeacher(courseManager);
-                    System.out.println("[admin] Enter course index to fill teacher");
+                    System.out.println("[admin] Enter course id to fill teacher");
                     int courseId = scanner.nextInt();
                     scanner.nextLine();
                     ArrayList<Course> courses = courseManager.readFile();
@@ -308,7 +308,7 @@ public class App {
     }
     private static void editTeachingRequirement() {
         courseManager.view();
-        System.out.println("[course director] Enter course index to update skill information: ");
+        System.out.println("[course director] Enter course id to update skill information: ");
         int id = scanner.nextInt();
         scanner.nextLine();
         ArrayList<Course> courses = courseManager.readFile();
