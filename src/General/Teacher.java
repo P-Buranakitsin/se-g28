@@ -29,65 +29,55 @@ public class Teacher implements Storable, Serializable {
         this.id = ++count;
     }
 
+    /* Getters */
     public String getFirstName() {
         return this.firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public Degree getDegree() {
         return degree;
     }
-
-    public WorkingDay getAvailableDay() {
-        return availableDay;
-    }
-
-    public Course getCourse() {
-        return course;
-    }
-
     public ArrayList<Skill> getSkills() {
         return skills;
     }
-
+    public ArrayList<Skill> getMissingSkills() {
+        return missingSkills;
+    }
+    public Course getCourse() {
+        return course;
+    }
+    public WorkingDay getAvailableDay() {
+        return availableDay;
+    }
     public int getId() {
         return id;
     }
 
+    /* Setters */
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
-
     public void setDegree(Degree degree) {
         this.degree = degree;
     }
-
     public void setSkills(ArrayList<Skill> skills) {
         this.skills = skills;
     }
-
-    public void setAvailableDay(WorkingDay availableDay) {
-        this.availableDay = availableDay;
-    }
-
-    public void setCourse(Course course) {
-        this.course = course;
-    }
-
-    public ArrayList<Skill> getMissingSkills() {
-        return missingSkills;
-    }
-
     public void setMissingSkills(ArrayList<Skill> missingSkills) {
         this.missingSkills = missingSkills;
     }
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+    public void setAvailableDay(WorkingDay availableDay) {
+        this.availableDay = availableDay;
+    }
+    
 
     @Override
     public String toString() {

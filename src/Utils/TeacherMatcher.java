@@ -1,12 +1,8 @@
 package Utils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
 import DatabaseManager.DatabaseManager;
 import General.*;
-import Interfaces.*;
 
 public class TeacherMatcher {
 
@@ -32,8 +28,6 @@ public class TeacherMatcher {
                 }
             }
         }
-        // ArrayList<Skill> missingSkill = new ArrayList<>();
-        // missingSkill.addAll(courseSet);
         teacher.setMissingSkills(courseSet);
         course.setTeacher(teacher);
         teacher.setCourse(course);

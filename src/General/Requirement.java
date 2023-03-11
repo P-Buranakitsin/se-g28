@@ -3,15 +3,14 @@ package General;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import Enums.WorkingDay;
-import Enums.SkillName;
+import Enums.*;
 public class Requirement implements Serializable {
     private WorkingDay teachingDay;
     private ArrayList<Skill> skills;
     private Degree degree;
 
     public Requirement(WorkingDay teachingDay, ArrayList<Skill> skills, Degree degree){
-        this. teachingDay = teachingDay;
+        this.teachingDay = teachingDay;
         this.skills  = skills;
         this.degree = degree;
     }
