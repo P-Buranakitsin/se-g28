@@ -11,5 +11,5 @@ public abstract class DatabaseManager<T extends Storable> {
     public abstract void add(T storable);
     public abstract void edit(int id, T storable);
     public abstract ArrayList<T> readFile();
-    public abstract void writeFile(ArrayList<T> storables);
+    protected abstract void writeFile(ArrayList<T> storables);
 }

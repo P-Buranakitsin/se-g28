@@ -33,7 +33,7 @@ class TeacherManager extends DatabaseManager<Teacher> implements Serializable {
     }
 
     @Override
-    public void writeFile(ArrayList<Teacher> teachers) {
+    protected void writeFile(ArrayList<Teacher> teachers) {
         String filePath = "src/Database/Teachers.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(teachers);

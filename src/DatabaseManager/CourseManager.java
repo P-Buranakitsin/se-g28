@@ -32,7 +32,7 @@ class CourseManager extends DatabaseManager<Course> {
     }
 
     @Override
-    public void writeFile(ArrayList<Course> courses) {
+    protected void writeFile(ArrayList<Course> courses) {
         String filePath = "src/Database/Courses.tmp";
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filePath))) {
             oos.writeObject(courses);
