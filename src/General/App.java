@@ -129,6 +129,7 @@ public class App {
                     int teacherId = scanner.nextInt();
                     scanner.nextLine();
                     TeacherMatcher.assignTeacherToCourse(teacherManager, courseManager, teacherId, courseId);
+                    System.out.println("[admin] Course filled by teacher.");
                     break;
                 case(3):
                     TeacherMatcher.viewHasTeacher(courseManager);
@@ -136,6 +137,7 @@ public class App {
                     int courseIdtoRemove = scanner.nextInt();
                     scanner.nextLine();
                     TeacherMatcher.removeAssignedTeacher(teacherManager, courseManager, courseIdtoRemove);
+                    System.out.println("[admin] Course has no teacher anymore.");
                     break;
                 case(4):
                     exit = true;
@@ -146,7 +148,6 @@ public class App {
                     break;
             }
         }
-        
     }
 
     private static void removeTeacher() {
@@ -155,6 +156,7 @@ public class App {
         int id = scanner.nextInt();
         scanner.nextLine();
         teacherManager.remove(id);
+        System.out.println("[admin] Teacher removed.");
     }
 
     private static void editTeacher() {
@@ -218,8 +220,10 @@ public class App {
                 teacherManager.edit(id, teacher);
                 break;
             default:
+                System.out.println("Invalid command");
                 break;
         }
+        System.out.println("[admin] Teacher updated.");
     }
 
     private static void addTeacher() {
@@ -253,6 +257,7 @@ public class App {
         scanner.nextLine();
         Teacher teacher = new Teacher(firstName, lastName, new Degree(degreeLevel, fieldOfStudy), skills, workingDay);
         teacherManager.add(teacher);
+        System.out.println("[admin] Teacher added.");
     }
     
     public static void addTeachingRequirement(){ 
@@ -286,7 +291,7 @@ public class App {
         Requirement requirement = new Requirement(workingDay, skills, new Degree(degreeLevel, fieldOfStudy));
         Course course = new Course(courseName, requirement);
         courseManager.add(course);
-
+        System.out.println("[course director] Teaching requirement added.");
     }
 
     public static void removeTeachingRequirement() {
@@ -295,6 +300,7 @@ public class App {
         int id = scanner.nextInt();
         scanner.nextLine();
         courseManager.remove(id);
+        System.out.println("[course director] Teaching requirement removed.");
     }
 
     private static void editTeachingRequirement() {
@@ -344,8 +350,11 @@ public class App {
                 }
                 course.getRequirement().setSkills(skills);;
                 courseManager.edit(id, course);
+                break;
             default:
+                System.out.println("Invalid command");
                 break;
         }
+        System.out.println("[course director] Teaching requirement updated.");
     }
 }
